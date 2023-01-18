@@ -1,0 +1,34 @@
+.container {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  margin-left: 25%;
+  margin-top: 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px black;
+}
+
+.title {
+  text-align: center;
+  padding: 10px;
+}
+
+.imgBox {
+  display: flex;
+  justify-content: center;
+}
+
+.infoBox {
+  display: flex;
+  justify-content: space-around;
+}
+
+.infoBox ul {
+  list-style: none;
+}
+
+.infoBox li {
+  float: left;
+  margin-left: 5px;
+}

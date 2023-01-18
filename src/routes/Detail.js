@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import loader from "../routes/Home.module.css";
+import styles from "./Detail.module.css";
 
 function Detail() {
   let { id } = useParams();
@@ -17,22 +19,34 @@ function Detail() {
   console.log(movie);
   return (
     <div>
-      <strong>
+      <div>
         {loading ? (
-          "Loading..."
+          <div className={loader.loader}>
+            <h1>"Loading..."</h1>
+          </div>
         ) : (
-          <div>
-            <h1>{movie.title}</h1>
-            <img src={movie.medium_cover_image} alt="" />
-            <ul>{movie.genres ? movie.genres.map((g, index) => <li key={index}>[{g}]</li>) : ""}</ul>
-            <p>year : {movie.year}</p>
-            <p>rating : {movie.rating}</p>
-            <p>runTime : {movie.runtime} minutes</p>
-            <p>Description : {movie.description_full}</p>
-            <p>upload Time: {movie.date_uploaded}</p>
+          <div className={styles.container}>
+            <div className={styles.title}>
+              <h1>{movie.title}</h1>
+            </div>
+            <div className={styles.imgBox}>
+              <img src={movie.large_cover_image} alt="" />
+            </div>
+            <div className={styles.infoBox}>
+              <div>
+                <ul>{movie.genres ? movie.genres.map((g, index) => <li key={index}>{g}</li>) : ""}</ul>
+              </div>
+              <div>
+                <p>year : {movie.year}</p>
+                <p>rating : {movie.rating}</p>
+                <p>runTime : {movie.runtime} minutes</p>
+              </div>
+            </div>
+
+            <p>{movie.description_full}</p>
           </div>
         )}
-      </strong>
+      </div>
     </div>
   );
 }
